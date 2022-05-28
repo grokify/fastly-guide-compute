@@ -1,6 +1,6 @@
 site_name: Fastly Compute@Edge
-site_url: https://grokify.github.io/fastly-guide-unofficial
-repo_url: https://github.com/grokify/fastly-guide-unofficial.git
+site_url: https://grokify.github.io/fastly-guide-compute
+repo_url: https://github.com/grokify/fastly-guide-compute.git
 theme: material
 
 markdown_extensions:
