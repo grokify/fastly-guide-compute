@@ -4,9 +4,9 @@ This is an unofficial companion guide to using Fastly Compute@Edge.
 
 It builds on the official Fastly documentation with an additional focus on:
 
-1. Quick Start Guides to get a "Hello World" app working quickly
-1. Day 2 usage to make everything as programmable as possible
-1. Management Console usage to the web UI
+1. [Quick Start Guides to get a "Hello World" app working quickly](compute/quickstart_javascript/)
+1. Day 2 usage to make everything as programmable as possible for [creating services](basics/service/), [packaging](compute/packaging/), [uploading and activation](compute/uploading_and_activation/).
+1. Management Console usage for various operations including [creating services](basics/service/), [uploading packages, and activating services](compute/uploading_and_activation/).
 
 ## What is Compute@Edge?
 
