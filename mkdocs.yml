@@ -1,0 +1,79 @@
+site_name: Fastly Compute@Edge
+site_url: https://grokify.github.io/fastly-guide-unofficial
+repo_url: https://github.com/grokify/fastly-guide-unofficial.git
+theme: material
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+nav:
+  - Home: index.md
+  - Basics:
+    - Overview: basics/index.md
+    - 'Getting an account': basics/account.md
+    - 'Getting an API token': basics/token.md
+    - 'Creating a Service': basics/service.md
+    - 'Domains and TLS': basics/dns_and_tls.md
+  - 'Using JavaScript':
+    - 'Quickstart': compute/quickstart_javascript.md
+    - 'Tutorial ⇗': https://developer.fastly.com/learning/compute/javascript/
+    - 'SDK Reference ⇗': https://js-compute-reference-docs.edgecompute.app/
+    - 'Examples ⇗': https://developer.fastly.com/solutions/examples/javascript/
+    - 'Starter Kits': compute/starter_kits.md
+  - 'Using AssemblyScript':
+    - 'Tutorial ⇗': https://developer.fastly.com/learning/compute/assemblyscript/
+  - 'Using Rust':
+    - 'Tutorial ⇗': https://developer.fastly.com/learning/compute/rust/
+  - 'Using Swift':
+    - 'Quickstart': compute/quickstart_swift.md
+  - 'Using the API':
+    - 'Tutorial using the API': compute/tutorial_api.md
+  - 'Migrating from VCL ⇗': https://developer.fastly.com/learning/compute/migrate/
+  - 'Testing and Debugging ⇗': https://developer.fastly.com/learning/compute/testing/
+  - 'The TOML file ⇗': https://developer.fastly.com/reference/compute/fastly-toml/
+  - 'Packaging': compute/packaging.md
+  - 'Deployment': compute/uploading_and_activation.md
+  - 'Starter Kits ⇗': https://developer.fastly.com/solutions/starters/
+  - 'Fastly Fiddle ⇗': https://fiddle.fastlydemo.net/
+  - 'Logging Integrations':
+    - "Amazon Kinesis Data Streams&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-amazon-kinesis-data-streams
+    - "Amazon S3&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-amazon-s3
+    - "Microsoft Azure Blob Storage&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-azure-blob-storage
+    - "Cloud Files&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-cloudfiles
+    - "Coralogix&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-coralogix
+    - "Datadog&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-datadog
+    - "DigitalOcean Spaces&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-digitalocean-spaces
+    - "Elasticsearch&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-elasticsearch
+    - "FTP&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-ftp
+    - "Google BigQuery&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-google-bigquery
+    - "Google Cloud Pub/Sub&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-google-cloud-pubsub
+    - "Google Cloud Storage&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-google-cloud-storage
+    - "Honeycomb&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-honeycomb
+    - "HTTPS&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-https
+    - "Hydrolix&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-hydrolix
+    - "Kafka&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-kafka
+    - "Log Shuttle&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-log-shuttle
+    - "LogDNA&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-logdna
+    - "Logentries&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-logentries
+    - "Loggly&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-loggly
+    - "Heroku's Logplex&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-logplex
+    - "New Relic Logs&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-newrelic-logs
+    - "OpenStack&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-openstack
+    - "Oracle Cloud Storage&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-oracle-cloud-storage
+    - "Papertrail&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-papertrail
+    - "Scalyr&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-scalyr
+    - "SFTP&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-sftp
+    - "Shape Log Analysis&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-shape-log-analysis
+    - "Splunk&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-splunk
+    - "Storj DCS&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-storj-dcs
+    - "Sumo Logic&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-sumologic
+    - "Syslog&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-syslog
+    - "Wasabi Hot Cloud Storage&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-wasabi-hot-cloud-storage
+  - FAQ: compute/faq.md
+  - Links: compute/links.md
