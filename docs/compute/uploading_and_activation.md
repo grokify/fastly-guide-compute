@@ -10,7 +10,6 @@ The core APIs used for all the approaches aside from the UI are to use the packa
 
 `PUT /service/{service_id}/version/{version_id}/package`
 
-
 [**Activate a service version API**](https://developer.fastly.com/reference/api/services/version/#activate-service-version)
 
 `PUT /service/{service_id}/version/{version_id}/activate`

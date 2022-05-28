@@ -32,13 +32,13 @@ nav:
     - 'Tutorial ⇗': https://developer.fastly.com/learning/compute/rust/
   - 'Using Swift':
     - 'Quickstart': compute/quickstart_swift.md
-  - 'Using the API':
-    - 'Tutorial using the API': compute/tutorial_api.md
   - 'Migrating from VCL ⇗': https://developer.fastly.com/learning/compute/migrate/
   - 'Testing and Debugging ⇗': https://developer.fastly.com/learning/compute/testing/
   - 'The TOML file ⇗': https://developer.fastly.com/reference/compute/fastly-toml/
   - 'Packaging': compute/packaging.md
-  - 'Deployment': compute/uploading_and_activation.md
+  - 'Deployment':
+    - Overview: compute/uploading_and_activation.md
+    - 'Quickstart for APIs': compute/tutorial_api.md
   - 'Starter Kits ⇗': https://developer.fastly.com/solutions/starters/
   - 'Fastly Fiddle ⇗': https://fiddle.fastlydemo.net/
   - 'Logging Integrations':
