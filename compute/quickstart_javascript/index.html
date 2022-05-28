@@ -1,0 +1,1929 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://grokify.github.io/fastly-guide-unofficial/compute/quickstart_javascript/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.9">
+    
+    
+      
+        <title>Quickstart - Fastly Compute@Edge</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2b4465f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#computeedge-quickstart-for-javascript" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Fastly Compute@Edge" class="md-header__button md-logo" aria-label="Fastly Compute@Edge" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Fastly Compute@Edge
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quickstart
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/grokify/fastly-guide-unofficial.git/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Fastly Compute@Edge" class="md-nav__button md-logo" aria-label="Fastly Compute@Edge" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Fastly Compute@Edge
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/grokify/fastly-guide-unofficial.git/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Basics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Basics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Basics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/account/" class="md-nav__link">
+        Getting an account
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/token/" class="md-nav__link">
+        Getting an API token
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/service/" class="md-nav__link">
+        Creating a Service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/dns_and_tls/" class="md-nav__link">
+        Domains and TLS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Using JavaScript
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Using JavaScript" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Using JavaScript
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Quickstart
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Quickstart
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    TL/DR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-the-empty-project-scaffold" class="md-nav__link">
+    Creating the Empty Project Scaffold
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating the Empty Project Scaffold">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    Commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    Output
+  </a>
+  
+    <nav class="md-nav" aria-label="Output">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fastlytoml" class="md-nav__link">
+    Fastly.toml
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-the-code" class="md-nav__link">
+    Writing the Code
+  </a>
+  
+    <nav class="md-nav" aria-label="Writing the Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hello-world" class="md-nav__link">
+    Hello, World!
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#further-reading-on-code" class="md-nav__link">
+    Further Reading on Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uploading-the-package" class="md-nav__link">
+    Uploading the Package
+  </a>
+  
+    <nav class="md-nav" aria-label="Uploading the Package">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-the-cli" class="md-nav__link">
+    Using the CLI
+  </a>
+  
+    <nav class="md-nav" aria-label="Using the CLI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#specifying-your-api-token" class="md-nav__link">
+    Specifying Your API Token
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publishing-the-code" class="md-nav__link">
+    Publishing the Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-domain-to-service" class="md-nav__link">
+    Add Domain to Service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activate-and-access-the-service" class="md-nav__link">
+    Activate and Access The Service
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://developer.fastly.com/learning/compute/javascript/" class="md-nav__link">
+        Tutorial ⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://js-compute-reference-docs.edgecompute.app/" class="md-nav__link">
+        SDK Reference ⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://developer.fastly.com/solutions/examples/javascript/" class="md-nav__link">
+        Examples ⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../starter_kits/" class="md-nav__link">
+        Starter Kits
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Using AssemblyScript
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Using AssemblyScript" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Using AssemblyScript
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://developer.fastly.com/learning/compute/assemblyscript/" class="md-nav__link">
+        Tutorial ⇗
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Using Rust
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Using Rust" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Using Rust
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://developer.fastly.com/learning/compute/rust/" class="md-nav__link">
+        Tutorial ⇗
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Using Swift
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Using Swift" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Using Swift
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart_swift/" class="md-nav__link">
+        Quickstart
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Using the API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Using the API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Using the API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial_api/" class="md-nav__link">
+        Tutorial using the API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://developer.fastly.com/learning/compute/migrate/" class="md-nav__link">
+        Migrating from VCL ⇗
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://developer.fastly.com/learning/compute/testing/" class="md-nav__link">
+        Testing and Debugging ⇗
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://developer.fastly.com/reference/compute/fastly-toml/" class="md-nav__link">
+        The TOML file ⇗
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packaging/" class="md-nav__link">
+        Packaging
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uploading_and_activation/" class="md-nav__link">
+        Deployment
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://developer.fastly.com/solutions/starters/" class="md-nav__link">
+        Starter Kits ⇗
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://fiddle.fastlydemo.net/" class="md-nav__link">
+        Fastly Fiddle ⇗
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" type="checkbox" id="__nav_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_15">
+          Logging Integrations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Logging Integrations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_15">
+          <span class="md-nav__icon md-icon"></span>
+          Logging Integrations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-amazon-kinesis-data-streams" class="md-nav__link">
+        Amazon Kinesis Data Streams&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-amazon-s3" class="md-nav__link">
+        Amazon S3&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-azure-blob-storage" class="md-nav__link">
+        Microsoft Azure Blob Storage&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-cloudfiles" class="md-nav__link">
+        Cloud Files&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-coralogix" class="md-nav__link">
+        Coralogix&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-datadog" class="md-nav__link">
+        Datadog&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-digitalocean-spaces" class="md-nav__link">
+        DigitalOcean Spaces&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-elasticsearch" class="md-nav__link">
+        Elasticsearch&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-ftp" class="md-nav__link">
+        FTP&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-google-bigquery" class="md-nav__link">
+        Google BigQuery&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-google-cloud-pubsub" class="md-nav__link">
+        Google Cloud Pub/Sub&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-google-cloud-storage" class="md-nav__link">
+        Google Cloud Storage&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-honeycomb" class="md-nav__link">
+        Honeycomb&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-https" class="md-nav__link">
+        HTTPS&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-hydrolix" class="md-nav__link">
+        Hydrolix&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-kafka" class="md-nav__link">
+        Kafka&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-log-shuttle" class="md-nav__link">
+        Log Shuttle&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-logdna" class="md-nav__link">
+        LogDNA&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-logentries" class="md-nav__link">
+        Logentries&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-loggly" class="md-nav__link">
+        Loggly&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-logplex" class="md-nav__link">
+        Heroku's Logplex&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-newrelic-logs" class="md-nav__link">
+        New Relic Logs&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-openstack" class="md-nav__link">
+        OpenStack&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-oracle-cloud-storage" class="md-nav__link">
+        Oracle Cloud Storage&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-papertrail" class="md-nav__link">
+        Papertrail&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-scalyr" class="md-nav__link">
+        Scalyr&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-sftp" class="md-nav__link">
+        SFTP&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-shape-log-analysis" class="md-nav__link">
+        Shape Log Analysis&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-splunk" class="md-nav__link">
+        Splunk&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-storj-dcs" class="md-nav__link">
+        Storj DCS&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-sumologic" class="md-nav__link">
+        Sumo Logic&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-syslog" class="md-nav__link">
+        Syslog&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.fastly.com/en/guides/log-streaming-wasabi-hot-cloud-storage" class="md-nav__link">
+        Wasabi Hot Cloud Storage&nbsp;⇗
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../links/" class="md-nav__link">
+        Links
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    TL/DR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-the-empty-project-scaffold" class="md-nav__link">
+    Creating the Empty Project Scaffold
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating the Empty Project Scaffold">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    Commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    Output
+  </a>
+  
+    <nav class="md-nav" aria-label="Output">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fastlytoml" class="md-nav__link">
+    Fastly.toml
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-the-code" class="md-nav__link">
+    Writing the Code
+  </a>
+  
+    <nav class="md-nav" aria-label="Writing the Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hello-world" class="md-nav__link">
+    Hello, World!
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#further-reading-on-code" class="md-nav__link">
+    Further Reading on Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uploading-the-package" class="md-nav__link">
+    Uploading the Package
+  </a>
+  
+    <nav class="md-nav" aria-label="Uploading the Package">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-the-cli" class="md-nav__link">
+    Using the CLI
+  </a>
+  
+    <nav class="md-nav" aria-label="Using the CLI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#specifying-your-api-token" class="md-nav__link">
+    Specifying Your API Token
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publishing-the-code" class="md-nav__link">
+    Publishing the Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-domain-to-service" class="md-nav__link">
+    Add Domain to Service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activate-and-access-the-service" class="md-nav__link">
+    Activate and Access The Service
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/grokify/fastly-guide-unofficial.git/edit/master/docs/compute/quickstart_javascript.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="computeedge-quickstart-for-javascript">Compute@Edge Quickstart for JavaScript</h1>
+<h2 id="tldr">TL/DR</h2>
+<p>To create a simple "Hello, World!" example, use the Fastly CLI to create an empty project and then modify the <code>src/index.js</code> file to emit "Hello, World!" instead of "OK".</p>
+<p>There are a number of files deployed as part of this process, but they key files are the <code>fastly.toml</code> file and the <code>src/index.js</code> file.</p>
+<p>This is described quickly here along with the CLI commands, and in more detail below.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">src/index.js</label><label for="__tabbed_1_2">fastly.toml</label><label for="__tabbed_1_3">CLI commands</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">/// &lt;reference types=&quot;@fastly/js-compute&quot; /&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;fetch&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">respondWith</span><span class="p">(</span><span class="nx">handleRequest</span><span class="p">(</span><span class="nx">event</span><span class="p">)));</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">async</span> <span class="kd">function</span> <span class="nx">handleRequest</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  <span class="k">return</span> <span class="ow">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="mf">200</span> <span class="p">});</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># This file describes a Fastly Compute@Edge package. To learn more visit:</span><span class="w"></span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># https://developer.fastly.com/reference/fastly-toml/</span><span class="w"></span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">authors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;grokify&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Fastly Compute@Edge \&quot;Hello, World!\&quot; Example App&quot;</span><span class="w"></span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">language</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;javascript&quot;</span><span class="w"></span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">manifest_version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Fastly Compute \&quot;Hello, World!\&quot;&quot;</span><span class="w"></span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">service_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>% mkdir fastly-compute-hello-world-js
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>% <span class="nb">cd</span> fastly-compute-hello-world-js
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>% fastly compute init
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>% vi src/index.js
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>% fastly compute publish --service-id<span class="o">=</span>&lt;YourServiceID&gt; --token<span class="o">=</span>&lt;YourAPIToken&gt;
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>At the end of this quickstart, you will see the following in your browser where "yoursubdomain" should be one of your choosing.</p>
+<p><img alt="" src="../fastly_helloworld_website.png" /></p>
+<p>To use your own domain, see</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ol>
+<li><a href="../../basics/account">Fastly account</a></li>
+<li><a href="../../basics/token">Fastly API Token</a></li>
+<li><a href="../../basics/service">Fastly Service</a></li>
+</ol>
+<h2 id="creating-the-empty-project-scaffold">Creating the Empty Project Scaffold</h2>
+<blockquote>
+<p>Note: the output in this program is from "Fastly CLI version v2.0.3 (112d60b) Built with go version go1.18.2 linux/amd64". Get the CLI by following <a href="https://developer.fastly.com/reference/cli/#installing">the instructions on the Fastly CLI page</a>.</p>
+</blockquote>
+<p>On macOS, use the following:</p>
+<p><code>% brew install fastly/tap/fastly</code></p>
+<h3 id="commands">Commands</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>% mkdir fastly-compute-hello-world-js
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>% cd fastly-compute-hello-world-js
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>% fastly compute init
+</code></pre></div>
+<h3 id="output">Output</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>% fastly compute init
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Creating a new Compute@Edge project.
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Press ^C at any time to quit.
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>Name: [fastly-compute-hello-world-js-2] Fastly Compute &quot;Hello, World!&quot;
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>Description: Fastly Compute@Edge &quot;Hello, World!&quot; Example App
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>Author: grokify
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>Language:
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>[1] Rust
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>[2] JavaScript
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>[3] AssemblyScript (beta)
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>[4] Other (&#39;bring your own&#39; Wasm binary)
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>Choose option: [1] 2
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>Starter kit:
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>[1] Default starter for JavaScript
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    A basic starter kit that demonstrates routing, simple synthetic responses and
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    overriding caching rules.
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>    https://github.com/fastly/compute-starter-kit-javascript-default
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>[2] Empty starter for JavaScript
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>    An empty application template for the Fastly Compute@Edge environment which simply
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>    returns a 200 OK response.
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>    https://github.com/fastly/compute-starter-kit-javascript-empty
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>Choose option or paste git URL: [1] 2
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>✓ Initializing...
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>✓ Fetching package template...
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>✓ Updating package manifest...
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>✓ Initializing package...
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>Initialized package Fastly Compute &quot;Hello, World!&quot; to:
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>    /Users/johnwang/go/src/github.com/grokify/fastly-compute-hello-world-js-2
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>To publish the package (build and deploy), run:
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>    fastly compute publish
+<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>
+<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>To learn about deploying Compute@Edge projects using third-party orchestration tools, visit:
+<a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>    https://developer.fastly.com/learning/integrations/orchestration/
+<a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>
+<a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a>
+<a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a>SUCCESS: Initialized package Fastly Compute &quot;Hello, World!&quot;
+</code></pre></div>
+<p>This results in the following list of 5921 files and directories generated from a <code>tar -tf</code>. The vast majority of these are in the <code>node_modules</code> directory which isn't needed for our "Hello, World!" program.</p>
+<p><a href="../fastly-compute-hello-world-js.init.contents.txt">fastly-compute-hello-world-js.init.contents.txt</a></p>
+<p>The top level directory files are as follows without listing out all the files under <code>node_modules</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>.gitignore
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>README.md
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>fastly.toml
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>node_modules/*
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>npm-shrinkwrap.json
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>package.json
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>src/index.js
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>webpack.config.js
+</code></pre></div>
+<p>Of note, <code>.gitignore</code> omits the <code>node_modules</code> directory along with <code>bin</code> and <code>pkg</code> which haven't been created yet.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>/node_modules
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>/bin
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>/pkg
+</code></pre></div>
+<h4 id="fastlytoml">Fastly.toml</h4>
+<p>The <code>fastly.toml</code> file looks like the following. You can add your Service ID here or add it later outside of this file for more deployment flexibility. This tutorial will supply the Service ID as a Fastly CLI command parameter below.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># This file describes a Fastly Compute@Edge package. To learn more visit:</span><span class="w"></span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1"># https://developer.fastly.com/reference/fastly-toml/</span><span class="w"></span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">authors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;grokify&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Fastly Compute@Edge \&quot;Hello, World!\&quot; Example App&quot;</span><span class="w"></span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">language</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;javascript&quot;</span><span class="w"></span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">manifest_version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Fastly Compute \&quot;Hello, World!\&quot;&quot;</span><span class="w"></span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="n">service_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"></span>
+</code></pre></div>
+<h2 id="writing-the-code">Writing the Code</h2>
+<p>The starter file is in the <code>src/index.js</code> location which has the following content:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">/// &lt;reference types=&quot;@fastly/js-compute&quot; /&gt;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;fetch&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">respondWith</span><span class="p">(</span><span class="nx">handleRequest</span><span class="p">(</span><span class="nx">event</span><span class="p">)));</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="k">async</span> <span class="kd">function</span> <span class="nx">handleRequest</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>  <span class="k">return</span> <span class="ow">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="mf">200</span> <span class="p">});</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="hello-world">Hello, World!</h3>
+<p>To start, let's just modify the "OK" text to say "Hello, World!" as such:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">/// &lt;reference types=&quot;@fastly/js-compute&quot; /&gt;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;fetch&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">respondWith</span><span class="p">(</span><span class="nx">handleRequest</span><span class="p">(</span><span class="nx">event</span><span class="p">)));</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="k">async</span> <span class="kd">function</span> <span class="nx">handleRequest</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>  <span class="k">return</span> <span class="ow">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="mf">200</span> <span class="p">});</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="p">}</span>
+</code></pre></div>
+<p>The response can be enhanced with a <code>Content-Type</code> header as follows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">async</span> <span class="kd">function</span> <span class="nx">handleRequest</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>  <span class="k">return</span> <span class="ow">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">,</span> <span class="p">{</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="nx">status</span><span class="o">:</span> <span class="mf">200</span><span class="p">,</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="nx">headers</span><span class="o">:</span> <span class="ow">new</span> <span class="nx">Headers</span><span class="p">({</span> <span class="s2">&quot;Content-Type&quot;</span><span class="o">:</span> <span class="s2">&quot;text/html;charset=utf-8&quot;</span> <span class="p">}),</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>  <span class="p">});</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="further-reading-on-code">Further Reading on Code</h3>
+<p>See the following resources for more on writing Edge code in JavaScript:</p>
+<ol>
+<li><a href="https://js-compute-reference-docs.edgecompute.app/">JS SDK Reference</a></li>
+<li><a href="https://developer.fastly.com/solutions/examples/javascript/">JS Code Examples</a></li>
+<li><a href="https://developer.fastly.com/learning/compute/javascript/">JS Dev Guide</a></li>
+<li><a href="http://127.0.0.1:8000/fastly-guide-unofficial/compute/starter_kits/">JS Starter Kits</a></li>
+</ol>
+<h2 id="uploading-the-package">Uploading the Package</h2>
+<h3 id="using-the-cli">Using the CLI</h3>
+<h4 id="specifying-your-api-token">Specifying Your API Token</h4>
+<p>Before you upload the file, you will need to get a Fastly API token. You can create one from the Fastly Management Console by following the instructions on the <a href="../../basics/token">tokens page</a>.</p>
+<p>A token is an alpha-numeric string that looks like the following:</p>
+<p><code>DRYzDkfSjieSDji82ie90830ehf02fDH</code></p>
+<p>You can use the token several ways:</p>
+<ul>
+<li>Via the Fastly CLI parameter <code>--token</code></li>
+<li>Via the environment variable <code>FASTLY_API_TOKEN</code></li>
+<li>Via the Fastly CLI profile using the commands from <code>% fastly profile --help</code></li>
+</ul>
+<p>For this Quickstart, we'll set the token using the environment variable such as following on macOS:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>% <span class="nb">export</span> <span class="nv">FASTLY_API_TOKEN</span><span class="o">=</span>&lt;YourFastlyAPIToken&gt;
+</code></pre></div>
+<h4 id="publishing-the-code">Publishing the Code</h4>
+<p>Fastly CLI has a number of commands to build and deploy the code. The following is an excerpt of the response from <code>$ fastly compute --help</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>COMMANDS
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>  compute
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>  build     Build a Compute@Edge package locally
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>  deploy    Deploy a package to a Fastly Compute@Edge service
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>  init      Initialize a new Compute@Edge package locally
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>  pack      Package a pre-compiled Wasm binary for a Fastly Compute@Edge service
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>  publish   Build and deploy a Compute@Edge package to a Fastly service
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>  serve     Build and run a Compute@Edge package locally
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>  update    Update a package on a Fastly Compute@Edge service version
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>  validate  Validate a Compute@Edge package
+</code></pre></div>
+<p>We want to both build the WASM binary and deploy it, so we'll use <code>publish</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>% fastly compute publish --service-id<span class="o">=</span>&lt;YourPackageServiceID&gt;
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>✓ Initializing...
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>✓ Verifying package manifest...
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>✓ Verifying <span class="nb">local</span> javascript toolchain...
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>✓ Building package using javascript toolchain...
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>✓ Creating package archive...
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>SUCCESS: Built package <span class="s1">&#39;Fastly-Compute-Hello-World&#39;</span> <span class="o">(</span>pkg/Fastly-Compute-Hello-World.tar.gz<span class="o">)</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>✓ Uploading package...
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>✓ Activating version...
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>Manage this service at:
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>    https://manage.fastly.com/configure/services/&lt;YourPackageServiceID&gt;
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>View this service at:
+<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>    https://goodapis.global.ssl.fastly.net
+<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>
+<a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>
+<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>SUCCESS: Deployed package <span class="o">(</span>service &lt;YourPackageServiceID&gt;, version <span class="m">1</span><span class="o">)</span>
+</code></pre></div>
+<p>This will create the following files:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>bin/index.js
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>bin/main.wasm
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>pkg/Fastly-Compute-Hello-World.tar.gz
+</code></pre></div>
+<p>Doing a TAR list will show the file contents:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>% tar -tf pkg/Fastly-Compute-Hello-World.tar.gz
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>Fastly-Compute-Hello-World/
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>Fastly-Compute-Hello-World/bin/
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>Fastly-Compute-Hello-World/bin/index.js
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>Fastly-Compute-Hello-World/bin/main.wasm
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>Fastly-Compute-Hello-World/fastly.toml
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>Fastly-Compute-Hello-World/package.json
+</code></pre></div>
+<p>You can confirm the package upload in the Fastly Management Console at the following URL:</p>
+<p>https://manage.fastly.com/compute/services/{YourServiceID}/versions/1/package</p>
+<p><img alt="" src="../fastly_package_console_info.png" /></p>
+<p>You can also upload the package from the UI, in which case you will use <code>fastly compute build</code> to create the WASM file without uploading.</p>
+<p><img alt="" src="../fastly_console_upload_package.png" /></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Fastly CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>To just build the WASM file locally, execute <code>fastly compute build</code> after which you can  upload the package manually via the UI or via the API yourself.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>% fastly compute build
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>✓ Initializing...
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>✓ Verifying package manifest...
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>✓ Verifying <span class="nb">local</span> javascript toolchain...
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>✓ Building package using javascript toolchain...
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>✓ Creating package archive...
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>SUCCESS: Built package <span class="s1">&#39;Fastly-Compute-Hello-World&#39;</span> <span class="o">(</span>pkg/Fastly-Compute-Hello-World.tar.gz<span class="o">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="add-domain-to-service">Add Domain to Service</h2>
+<p>Use the Fastly Management Console to add a domain to the service.</p>
+<p>For this Quickstart, use a Fastly subdomain such as:</p>
+<p><code>&lt;yoursubdomain&gt;.global.ssl.fastly.net</code></p>
+<p><img alt="" src="../fastly_domain_yoursubdomain_img1.png" /></p>
+<p><img alt="" src="../fastly_domain_yoursubdomain_img2.png" /></p>
+<p>While the Management Console says you need to add a backend host to activate, this example does not require one and you can activate without one.</p>
+<p>You can also use the Fastly API and SDKs to add a domain via the <a href="https://developer.fastly.com/reference/api/services/domain/#create-domain">"Add a domain name to a service" API</a>.</p>
+<h2 id="activate-and-access-the-service">Activate and Access The Service</h2>
+<p><img alt="" src="../fastly_helloworld_website.png" /></p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../basics/dns_and_tls/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Domains and TLS" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Domains and TLS
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../starter_kits/" class="md-footer__link md-footer__link--next" aria-label="Next: Starter Kits" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Starter Kits
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
+      
+    
+  </body>
+</html>
