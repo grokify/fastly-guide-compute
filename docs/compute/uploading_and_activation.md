@@ -26,7 +26,7 @@ The following provides a short description of this for each.
 
     ``` bash
     % fastly compute deploy
-    ```  
+    ```
 
 === "Console"
     **Uploading the Package with the Management Console**
@@ -36,6 +36,8 @@ The following provides a short description of this for each.
     ![](fastly_console_upload_package.png)
 
     The in the upper right corner of the page, click the "Activate" button.
+
+    ![](fastly_console_compute_name-and-buttons.png)
 
 === "cURL"
 
