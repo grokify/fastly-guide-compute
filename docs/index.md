@@ -12,7 +12,7 @@ It builds on the official Fastly documentation with an additional focus on:
 
 Compute@Edge lets you deploy lightweight, fastly to run, serverless code at the edge, in the form of WebAssembly (WASM) packages. The WASM packages are standard definition files that use the WebAssembly System Interface (WASI).
 
-See more on the [Fastly Product page](https://docs.fastly.com/products/compute-at-edge).
+See more on the [Fastly Product page](https://docs.fastly.com/products/compute-at-edge) and this guide's [FAQ](compute/faq).
 
 ## Deployment Process
 
@@ -61,16 +61,3 @@ Fastly offers several ways to deploy Fastly edge code packages to production.
 Fastly also provides API Client SDKs in [Python](https://github.com/fastly/fastly-py), [Ruby](https://github.com/fastly/fastly-ruby), and [Perl](https://github.com/fastly/fastly-js). To request Upload Package API support, please post a GitHub Issue for their respective GitHub repositories.
 
 Local testing can be done using [Viceroy](https://github.com/fastly/Viceroy).
-
-## Frequently Asked Questions
-
-### How does WebAssembly compare with Docker?
-
-WebAssembly has some advantages over Docker including:
-
-![](compute/wasmvdocker.png)
-
-See more in this article by [Will Cloud-Native WebAssembly Replace Docker? by Michael Yuan and Yicen Xie](
-https://kubesphere.io/blogs/will-cloud-native-webassembly-replace-docker_/)
-
-Docker has some advantages over WebAssembly, including the ability to support more languages.

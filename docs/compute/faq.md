@@ -14,5 +14,3 @@ WebAssembly has some advantages over Docker including:
 
 See more in this article by [Will Cloud-Native WebAssembly Replace Docker? by Michael Yuan and Yicen Xie](
 https://kubesphere.io/blogs/will-cloud-native-webassembly-replace-docker_/)
-
-Docker has some advantages over WebAssembly, including the ability to support more languages.
