@@ -58,6 +58,8 @@ Fastly offers several ways to deploy Fastly edge code packages to production.
 1. [Fastly API Client SDK for JavaScript](https://github.com/fastly/fastly-js) - upload packages via the [`putPackage` function](https://github.com/fastly/fastly-js/blob/main/docs/PackageApi.md#putPackage)
 1. [Fastly API Client SDK for PHP](https://github.com/fastly/fastly-php) - upload packages via the [`putPackage` function](https://github.com/fastly/fastly-php/blob/main/docs/Api/PackageApi.md#putpackage)
 
+See the [Deployment page](compute/uploading_and_activation/) for more information on these approaches. The [Packaging page](compute/packaging/) covers the service package file format that is sent to the various deployment options, along with approaches to create the service package.
+
 Fastly also provides API Client SDKs in [Python](https://github.com/fastly/fastly-py), [Ruby](https://github.com/fastly/fastly-ruby), and [Perl](https://github.com/fastly/fastly-js). To request Upload Package API support, please post a GitHub Issue for their respective GitHub repositories.
 
 Local testing can be done using [Viceroy](https://github.com/fastly/Viceroy).
