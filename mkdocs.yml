@@ -83,3 +83,4 @@ nav:
     - "Wasabi Hot Cloud Storage&nbsp;⇗": https://docs.fastly.com/en/guides/log-streaming-wasabi-hot-cloud-storage
   - FAQ: compute/faq.md
   - Links: compute/links.md
+  - 'Feedback&nbsp;⇗': https://github.com/grokify/fastly-guide-compute/issues
