@@ -300,7 +300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../basics/dns_and_tls/" class="md-nav__link">
+      <a href="../../basics/domains_and_tls/" class="md-nav__link">
         Domains and TLS
       </a>
     </li>
@@ -1352,7 +1352,8 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>your-sanitized-package-name/bin/main.wasm
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>your-sanitized-package-name/fastly.toml
 </code></pre></div>
-<p>The sanitized package name is derived from the <code>name</code> property in the <code>fastly.toml</code> file run against the <a href="https://pkg.go.dev/github.com/kennygrant/sanitize#BaseName"><code>BaseName</code> function</a> from the <a href="https://github.com/kennygrant/sanitize"><code>github.com/kennygrant/sanitize</code></a> package <a href="https://github.com/fastly/cli/blob/8e72711aac048f89f5bb9e576054757c1eae82f2/pkg/commands/compute/pack.go#L51">as seen here in the CLI code</a>.</p>
+<p>The sanitized package name is derived from the <code>name</code> property in the <code>fastly.toml</code> file. The algorithm to convert a string to one that is file system friendly is straight-forward and generally involves removing some characters like spaces and punctuation, along with removing diacritics.</p>
+<p>For the Fastly CLI, the <code>name</code> property is run against the <a href="https://pkg.go.dev/github.com/kennygrant/sanitize#BaseName"><code>BaseName</code> function</a> from the <a href="https://github.com/kennygrant/sanitize"><code>github.com/kennygrant/sanitize</code></a> package <a href="https://github.com/fastly/cli/blob/8e72711aac048f89f5bb9e576054757c1eae82f2/pkg/commands/compute/pack.go#L51">as seen here in the CLI code</a>.</p>
 <h2 id="packaging-examples">Packaging Examples</h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">CLI</label><label for="__tabbed_1_2">Go</label></div>
 <div class="tabbed-content">
