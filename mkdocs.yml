@@ -19,7 +19,7 @@ nav:
     - 'Getting an account': basics/account.md
     - 'Getting an API token': basics/token.md
     - 'Creating a Service': basics/service.md
-    - 'Domains and TLS': basics/dns_and_tls.md
+    - 'Domains and TLS': basics/domains_and_tls.md
   - 'Using JavaScript':
     - 'Quickstart': compute/quickstart_javascript.md
     - 'Tutorial ⇗': https://developer.fastly.com/learning/compute/javascript/

@@ -45,7 +45,7 @@ At the end of this quickstart, you will see the following in your browser where 
 
 ![](fastly_helloworld_website.png)
 
-To use your own domain, see
+To use your own domain, see the section on [Domains and TLS](../../basics/domains_and_tls)
 
 ## Prerequisites
 

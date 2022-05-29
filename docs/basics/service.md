@@ -4,7 +4,7 @@ A Compute@Edge service must be created for each serverless function you want to 
 
 A Compute@Edge service can be created by the CLI, UI, API or API SDKs.
 
-> Note: after you have a service, be sure to [add a domain so it can be accessed](../dns_and_tls).
+> Note: after you have a service, be sure to [add a domain so it can be accessed](../domains_and_tls).
 
 The CLI and SDKs both use the ["Create a service" API](https://developer.fastly.com/reference/api/services/service/#create-service). Note that this API requires the `engineer` role. The `superuser` role does not satisfy the requirements for this API.
 

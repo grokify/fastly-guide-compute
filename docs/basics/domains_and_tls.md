@@ -6,7 +6,7 @@ You can use a Fastly subdomain or bring your own domain. In either case, Compute
 
 For testing purposes, it may be useful to enable both.
 
-## Fastly Subdomain Considerations
+## Using a Fastly Subdomain
 
 A Fastly subdomain can be ideal for services with HTTP URLs that are not directly visible by users such as API services, media services, and others.
 
@@ -18,7 +18,7 @@ Simply choose a subomdain using the format `<your_subdomain>.global.ssl.fastly.n
 
 A Fastly subdomain comes with Fastly's Free TLS service which is documented in the [Setting up free TLS guide](https://docs.fastly.com/en/guides/setting-up-free-tls).
 
-## Your Own Domain Considerations
+## Using Your Own Domain
 
 You can also use your own domain as follows:
 
@@ -34,7 +34,7 @@ With your own subdomain, you will need to do three things:
 
 > Note: Since Compute@Edge requires TLS, you will not be able to use Let's Encrypt's manual certification provisioning process as the Let's Encrypt needs to access a file in the `.well-known` folder which won't be accessible.
 
-## Adding a Domain
+## How to Add a Domain
 
 In either case, start off by adding a domain to your service. You can do this using the Fastly Management Console or the API / SDKs.
 
@@ -48,4 +48,4 @@ In either case, start off by adding a domain to your service. You can do this us
 
     This API is located at:
 
-    `POST https://api/service/service_id/version/version_id/domain`
+    `POST https://api/service/{service_id}/version/{version_id}/domain`
