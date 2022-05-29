@@ -8,6 +8,8 @@ There are a number of files deployed as part of this process, but they key files
 
 This is described quickly here along with the CLI commands, and in more detail below.
 
+Once you complete this quickstart, see the [tutorial](https://developer.fastly.com/learning/compute/javascript/) and [SDK reference](https://js-compute-reference-docs.edgecompute.app/) for more info along with additional [examples](https://developer.fastly.com/solutions/examples/javascript/) and [starter kits](../../compute/starter_kits/#javascript)
+
 === "src/index.js"
 
     ```js

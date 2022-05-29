@@ -8,9 +8,7 @@
 
 ## AssemblyScript
 
-[Default starter for AssemblyScript](https://developer.fastly.com/solutions/starters/compute-starter-kit-assemblyscript-default/)
-
-* A basic starter kit that demonstrates routing, simple synthetic responses and overriding caching rules.
+1. [Default starter for AssemblyScript](https://developer.fastly.com/solutions/starters/compute-starter-kit-assemblyscript-default/): A basic starter kit that demonstrates routing, simple synthetic responses and overriding caching rules.
 
 ## Rust
 
