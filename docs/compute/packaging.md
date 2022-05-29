@@ -11,7 +11,9 @@ your-sanitized-package-name/bin/main.wasm
 your-sanitized-package-name/fastly.toml
 ```
 
-The sanitized package name is derived from the `name` property in the `fastly.toml` file run against the [`BaseName` function](https://pkg.go.dev/github.com/kennygrant/sanitize#BaseName) from the [`github.com/kennygrant/sanitize`](https://github.com/kennygrant/sanitize) package [as seen here in the CLI code](https://github.com/fastly/cli/blob/8e72711aac048f89f5bb9e576054757c1eae82f2/pkg/commands/compute/pack.go#L51).
+The sanitized package name is derived from the `name` property in the `fastly.toml` file. The algorithm to convert a string to one that is file system friendly is straight-forward and generally involves removing some characters like spaces and punctuation, along with removing diacritics.
+
+For the Fastly CLI, the `name` property is run against the [`BaseName` function](https://pkg.go.dev/github.com/kennygrant/sanitize#BaseName) from the [`github.com/kennygrant/sanitize`](https://github.com/kennygrant/sanitize) package [as seen here in the CLI code](https://github.com/fastly/cli/blob/8e72711aac048f89f5bb9e576054757c1eae82f2/pkg/commands/compute/pack.go#L51).
 
 ## Packaging Examples
 
