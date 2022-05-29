@@ -31,7 +31,7 @@ Prerequisites include:
 1. Add a domain
 1. Add TLS certificate, which is required for Compute@Edge
 
-> Note: Compute@Edge requires TLS for connections, which requires a paid account.
+> Note: Compute@Edge requires TLS for connections. Free TLS is provided for Fastly subdomains, but a paid account is required to use your own domain.
 
 ## Edge Code Language Support
 

@@ -1,13 +1,11 @@
 # Quickstart for WASM Edge Code using Swift
 
-Using the example at:
-
-[`https://github.com/kateinoigakukun/swift-fastly-edge-example`](https://github.com/kateinoigakukun/swift-fastly-edge-example)
+This Quickstart uses the [`github.com/kateinoigakukun/swift-fastly-edge-example`](https://github.com/kateinoigakukun/swift-fastly-edge-example) example, which uses the [`github.com/AndrewBarba/swift-compute-runtime`](https://github.com/AndrewBarba/swift-compute-runtime) SDK.
 
 ## Prerequisites
 
-1. Install the Swift WASM toolchain from: https://book.swiftwasm.org/getting-started/setup.html
-1. Install the Fastly CLI
+1. Install the Swift WASM toolchain from the links at [SwiftWASM.org](https://book.swiftwasm.org/getting-started/setup.html)
+1. Install the [Fastly CLI](https://github.com/fastly/cli)
 
 ## Quickstart using the CLI:
 

@@ -28,8 +28,14 @@ nav:
     - 'Starter Kits': compute/starter_kits.md
   - 'Using AssemblyScript':
     - 'Tutorial ⇗': https://developer.fastly.com/learning/compute/assemblyscript/
+    - 'SDK Reference ⇗': https://as-compute-reference-docs.edgecompute.app/
+    - 'Examples ⇗': https://developer.fastly.com/solutions/examples/assemblyscript/
+    - 'Starter Kits': compute/starter_kits.md
   - 'Using Rust':
     - 'Tutorial ⇗': https://developer.fastly.com/learning/compute/rust/
+    - 'SDK Reference ⇗': https://docs.rs/fastly/latest/fastly/
+    - 'Eamples ⇗': https://developer.fastly.com/solutions/examples/rust/
+    - 'Starter Kits': compute/starter_kits.md
   - 'Using Swift':
     - 'Quickstart': compute/quickstart_swift.md
   - 'Migrating from VCL ⇗': https://developer.fastly.com/learning/compute/migrate/
