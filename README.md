@@ -2,6 +2,10 @@
 
 This guide is a companion guide to the officaly Fastly documentation.
 
+Read the Guide here:
+
+[https://grokify.github.io/fastly-guide-compute/](https://grokify.github.io/fastly-guide-compute/)
+
 It covers:
 
 1. [End-to-end "Hello, World!" example](https://grokify.github.io/fastly-guide-compute/compute/quickstart_javascript/)
