@@ -1475,7 +1475,7 @@
 <li>Activate the new Edge code by calling the <a href="https://developer.fastly.com/reference/api/services/version/#activate-service-version">Activate a service version</a>.</li>
 </ol>
 <p>Using cURL, the commands look like the following:</p>
-<p><a href="https://developer.fastly.com/reference/api/services/service/#create-service">"Create a service" API</a>. For the next steps, use the service version that you receive back in the API response. This in an auto-incrementing integer, e.g. <code>1</code>, <code>2</code>, etc.</p>
+<p><a href="https://developer.fastly.com/reference/api/services/service/#create-service">"Create a service" API</a>. For the next steps, use the service version that you receive back in the API response. This in an auto-incrementing integer, e.g. <code>1</code>, <code>2</code>, etc. See more in the <a href="../../basics/service">"Creating a Service" section</a>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>% curl -D - -X POST --location &quot;https://api.fastly.com/service&quot; \
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  -H &quot;Content-Type: application/x-www-form-urlencoded&quot; \
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  -H &quot;Accept: application/json&quot; \
@@ -1503,7 +1503,7 @@
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  -H &quot;expect: 100-continue&quot; \
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  -F &quot;package=@/path/to/file&quot;
 </code></pre></div>
-<p><a href="https://developer.fastly.com/reference/api/services/version/#activate-service-version">Activate a service version</a>:</p>
+<p><a href="https://developer.fastly.com/reference/api/services/version/#activate-service-version">"Activate a service version" API</a>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>% curl -D - -X PUT --location &quot;https://api.fastly.com/service/{YOUR_SERVICE_ID}/version/{YOUR_SERVICE_VERSION}/activate&quot; \
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  -H &quot;Accept: application/json&quot; \
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  -H &quot;Fastly-Key: YOUR_FASTLY_TOKEN&quot;
