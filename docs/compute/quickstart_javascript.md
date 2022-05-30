@@ -2,7 +2,7 @@
 
 ## TL/DR
 
-To create a simple "Hello, World!" example, use the Fastly CLI to create an empty project and then modify the `src/index.js` file to emit "Hello, World!" instead of "OK".
+To create a simple "Hello, World!" synthetic response example, use the Fastly CLI to create an empty project and then modify the `src/index.js` file to emit "Hello, World!" instead of "OK".
 
 There are a number of files deployed as part of this process, but they key files are the `fastly.toml` file and the `src/index.js` file.
 
@@ -209,6 +209,8 @@ See the following resources for more on writing Edge code in JavaScript:
 
 ## Uploading the Package
 
+This quickstart uses the Fastly CLI to upload and activate the code. Alternate methods of packaging, uploading and activating the service are covered in the [Packaging](../packaging) and [Deployment](../uploading_and_activation) pages.
+
 ### Using the CLI
 
 #### Specifying Your API Token
@@ -300,24 +302,6 @@ https://manage.fastly.com/compute/services/{YourServiceID}/versions/1/package
 
 ![](fastly_package_console_info.png)
 
-You can also upload the package from the UI, in which case you will use `fastly compute build` to create the WASM file without uploading.
-
-![](fastly_console_upload_package.png)
-
-=== "Fastly CLI"
-    To just build the WASM file locally, execute `fastly compute build` after which you can  upload the package manually via the UI or via the API yourself.
-
-    ```bash
-    % fastly compute build
-    ✓ Initializing...
-    ✓ Verifying package manifest...
-    ✓ Verifying local javascript toolchain...
-    ✓ Building package using javascript toolchain...
-    ✓ Creating package archive...
-    
-    SUCCESS: Built package 'Fastly-Compute-Hello-World' (pkg/Fastly-Compute-Hello-World.tar.gz)
-    ```
-
 ## Add Domain to Service
 
 Use the Fastly Management Console to add a domain to the service.
@@ -332,8 +316,10 @@ For this Quickstart, use a Fastly subdomain such as:
 
 While the Management Console says you need to add a backend host to activate, this example does not require one and you can activate without one.
 
-You can also use the Fastly API and SDKs to add a domain via the ["Add a domain name to a service" API](https://developer.fastly.com/reference/api/services/domain/#create-domain).
+Information on using your own domain as well as adding your domain via alternate methods such as the API and SDKs is covered in the [Domains and TLS](../../basics/domains_and_tls) page.
 
-## Activate and Access The Service
+## Access The Service
+
+Use your browser (or cURL) to retrive `https://{yoursubdomain}.global.ssl.fastly.net` where `{yourdomain}` is the subdomain you entered above.
 
 ![](fastly_helloworld_website.png)
