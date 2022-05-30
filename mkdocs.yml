@@ -1,7 +1,14 @@
 site_name: Fastly Compute@Edge
 site_url: https://grokify.github.io/fastly-guide-compute
 repo_url: https://github.com/grokify/fastly-guide-compute.git
-theme: material
+
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: red
+    accent: cyan
+  highlightjs: true
 
 markdown_extensions:
   - pymdownx.highlight:
