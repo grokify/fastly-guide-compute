@@ -29,7 +29,7 @@ Use the following steps to create New Service entirely using APIs.
 
 Using cURL, the commands look like the following:
 
-["Create a service" API](https://developer.fastly.com/reference/api/services/service/#create-service). For the next steps, use the service version that you receive back in the API response. This in an auto-incrementing integer, e.g. `1`, `2`, etc.
+["Create a service" API](https://developer.fastly.com/reference/api/services/service/#create-service). For the next steps, use the service version that you receive back in the API response. This in an auto-incrementing integer, e.g. `1`, `2`, etc. See more in the ["Creating a Service" section](../../basics/service).
 
 ```
 % curl -D - -X POST --location "https://api.fastly.com/service" \
@@ -69,7 +69,7 @@ Using cURL, the commands look like the following:
   -F "package=@/path/to/file"
 ```
 
-[Activate a service version](https://developer.fastly.com/reference/api/services/version/#activate-service-version):
+["Activate a service version" API](https://developer.fastly.com/reference/api/services/version/#activate-service-version):
 
 ```
 % curl -D - -X PUT --location "https://api.fastly.com/service/{YOUR_SERVICE_ID}/version/{YOUR_SERVICE_VERSION}/activate" \

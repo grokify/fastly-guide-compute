@@ -62,7 +62,7 @@ For additional SDK examples, see [the API Reference for the "Create a service" A
 
 ### Using the Superuser Permission
 
-While a user with the `superuser` role can create a service in the Fastly Management Console, the same role cannot be used to create a service via the API. The `engineer` role is required.
+While a user with the `superuser` role can create a service in the Fastly Management Console, the same role cannot be used to create a service via the CLI or API and SDKs. The `engineer` role is required.
 
 If you attempt to create a service with a `superuser` role you will receive the following errors:
 
