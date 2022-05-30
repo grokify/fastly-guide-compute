@@ -18,8 +18,8 @@ See more on the [Fastly Product page](https://docs.fastly.com/products/compute-a
 
 There are generally 5 steps for deploying code at Fastly's Edge, some of which can be combined and reordered by some tools such as the [Fastly CLI](https://github.com/fastly/cli).
 
-1. Create the WASM binary
 1. Create the `fastly.toml` file
+1. Create the WASM binary
 1. Create the Edge Code package tarball
 1. Upload the Edge Code package tarball
 1. Activate the service
