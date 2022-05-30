@@ -516,8 +516,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#activate-and-access-the-service" class="md-nav__link">
-    Activate and Access The Service
+  <a href="#access-the-service" class="md-nav__link">
+    Access The Service
   </a>
   
 </li>
@@ -1669,8 +1669,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#activate-and-access-the-service" class="md-nav__link">
-    Activate and Access The Service
+  <a href="#access-the-service" class="md-nav__link">
+    Access The Service
   </a>
   
 </li>
@@ -1694,7 +1694,7 @@
 
 <h1 id="computeedge-quickstart-for-javascript">Compute@Edge Quickstart for JavaScript</h1>
 <h2 id="tldr">TL/DR</h2>
-<p>To create a simple "Hello, World!" example, use the Fastly CLI to create an empty project and then modify the <code>src/index.js</code> file to emit "Hello, World!" instead of "OK".</p>
+<p>To create a simple "Hello, World!" synthetic response example, use the Fastly CLI to create an empty project and then modify the <code>src/index.js</code> file to emit "Hello, World!" instead of "OK".</p>
 <p>There are a number of files deployed as part of this process, but they key files are the <code>fastly.toml</code> file and the <code>src/index.js</code> file.</p>
 <p>This is described quickly here along with the CLI commands, and in more detail below.</p>
 <p>Once you complete this quickstart, see the <a href="https://developer.fastly.com/learning/compute/javascript/">tutorial</a> and <a href="https://js-compute-reference-docs.edgecompute.app/">SDK reference</a> for more info along with additional <a href="https://developer.fastly.com/solutions/examples/javascript/">examples</a> and <a href="../../compute/starter_kits/#javascript">starter kits</a></p>
@@ -1862,6 +1862,7 @@
 <li><a href="http://127.0.0.1:8000/fastly-guide-unofficial/compute/starter_kits/">JS Starter Kits</a></li>
 </ol>
 <h2 id="uploading-the-package">Uploading the Package</h2>
+<p>This quickstart uses the Fastly CLI to upload and activate the code. Alternate methods of packaging, uploading and activating the service are covered in the <a href="../packaging">Packaging</a> and <a href="../uploading_and_activation">Deployment</a> pages.</p>
 <h3 id="using-the-cli">Using the CLI</h3>
 <h4 id="specifying-your-api-token">Specifying Your API Token</h4>
 <p>Before you upload the file, you will need to get a Fastly API token. You can create one from the Fastly Management Console by following the instructions on the <a href="../../basics/token">tokens page</a>.</p>
@@ -1929,24 +1930,6 @@
 <p>You can confirm the package upload in the Fastly Management Console at the following URL:</p>
 <p>https://manage.fastly.com/compute/services/{YourServiceID}/versions/1/package</p>
 <p><img alt="" src="../fastly_package_console_info.png" /></p>
-<p>You can also upload the package from the UI, in which case you will use <code>fastly compute build</code> to create the WASM file without uploading.</p>
-<p><img alt="" src="../fastly_console_upload_package.png" /></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Fastly CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>To just build the WASM file locally, execute <code>fastly compute build</code> after which you can  upload the package manually via the UI or via the API yourself.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>% fastly compute build
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>✓ Initializing...
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>✓ Verifying package manifest...
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>✓ Verifying <span class="nb">local</span> javascript toolchain...
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>✓ Building package using javascript toolchain...
-<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>✓ Creating package archive...
-<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>
-<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>SUCCESS: Built package <span class="s1">&#39;Fastly-Compute-Hello-World&#39;</span> <span class="o">(</span>pkg/Fastly-Compute-Hello-World.tar.gz<span class="o">)</span>
-</code></pre></div>
-</div>
-</div>
-</div>
 <h2 id="add-domain-to-service">Add Domain to Service</h2>
 <p>Use the Fastly Management Console to add a domain to the service.</p>
 <p>For this Quickstart, use a Fastly subdomain such as:</p>
@@ -1954,8 +1937,9 @@
 <p><img alt="" src="../fastly_domain_yoursubdomain_img1.png" /></p>
 <p><img alt="" src="../fastly_domain_yoursubdomain_img2.png" /></p>
 <p>While the Management Console says you need to add a backend host to activate, this example does not require one and you can activate without one.</p>
-<p>You can also use the Fastly API and SDKs to add a domain via the <a href="https://developer.fastly.com/reference/api/services/domain/#create-domain">"Add a domain name to a service" API</a>.</p>
-<h2 id="activate-and-access-the-service">Activate and Access The Service</h2>
+<p>Information on using your own domain as well as adding your domain via alternate methods such as the API and SDKs is covered in the <a href="../../basics/domains_and_tls">Domains and TLS</a> page.</p>
+<h2 id="access-the-service">Access The Service</h2>
+<p>Use your browser (or cURL) to retrive <code>https://{yoursubdomain}.global.ssl.fastly.net</code> where <code>{yourdomain}</code> is the subdomain you entered above.</p>
 <p><img alt="" src="../fastly_helloworld_website.png" /></p>
 
               
