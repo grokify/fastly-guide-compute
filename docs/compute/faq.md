@@ -20,5 +20,5 @@ WebAssembly has some advantages over Docker including:
 
 ![](wasmvdocker.png)
 
-See more in this article by [Will Cloud-Native WebAssembly Replace Docker? by Michael Yuan and Yicen Xie](
-https://kubesphere.io/blogs/will-cloud-native-webassembly-replace-docker_/)
+See more in this article ["Will Cloud-Native WebAssembly Replace Docker?" by Michael Yuan and Yicen Xie](
+https://kubesphere.io/blogs/will-cloud-native-webassembly-replace-docker_/).

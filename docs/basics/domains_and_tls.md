@@ -1,20 +1,20 @@
 # Using Domains
 
-Edge functions are accessed over HTTP so you need to add one or more domains to your Edge services to use it.
+Edge functions are accessed over HTTPS so you need to add one or more domains to your Edge services to use it.
 
-You can use a Fastly subdomain or bring your own domain. In either case, Compute@Edge requires TLS so you will need to have TLS enabled. All non-TLS URLs are redirect to TLS by Fastly.
+You can use a Fastly subdomain or bring your own domain. In either case, Compute@Edge requires TLS so you will need to have TLS enabled. All non-TLS URLs are redirect to TLS by Fastly using a 308 Permanent Redirect.
 
 For testing purposes, it may be useful to enable both.
 
 ## Using a Fastly Subdomain
 
-A Fastly subdomain can be ideal for services with HTTP URLs that are not directly visible by users such as API services, media services, and others.
+A Fastly subdomain can be ideal for services with URLs that are not directly visible by users such as API services, media services, and others.
 
 A Fastly subdomain looks like the following:
 
 `your-subdomain.global.ssl.fastly.net`
 
-Simply choose a subomdain using the format `<your_subdomain>.global.ssl.fastly.net` and add it to your Service configuration.
+Simply choose a subomdain using the format `<your-subdomain>.global.ssl.fastly.net` and add it to your Service configuration.
 
 A Fastly subdomain comes with Fastly's Free TLS service which is documented in the [Setting up free TLS guide](https://docs.fastly.com/en/guides/setting-up-free-tls).
 
@@ -32,7 +32,7 @@ With your own subdomain, you will need to do three things:
 1. Ensure you have a paid account
 1. Add a certificate by using Fastly's integrations with Let's Encrypt and Globalsign or bringing your own
 
-> Note: Since Compute@Edge requires TLS, you will not be able to use Let's Encrypt's manual certification provisioning process as the Let's Encrypt needs to access a file in the `.well-known` folder which won't be accessible.
+> Note: Since Compute@Edge requires TLS, you will not be able to use Let's Encrypt's manual certification provisioning process as the Let's Encrypt needs to access a file in the `.well-known` folder which won't be accessible. Fastly addresses this by enabling automatic certificate signing through the Fastly Management Console.
 
 ## How to Add a Domain
 

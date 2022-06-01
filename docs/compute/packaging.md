@@ -4,7 +4,7 @@ Before uploading to Fastly's Edge, the WASM binary, `fastly.toml` file and any a
 
 ## Tarball Format
 
-The file should be named `your-sanitized-package-name.tar.gz` and have the following files:
+The file should be named `your-sanitized-package-name.tar.gz` and should minimally have the following files:
 
 ```
 your-sanitized-package-name/bin/main.wasm

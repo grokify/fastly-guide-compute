@@ -18,7 +18,7 @@ Click on the "Create a Compute service" button:
 
 ![](fastly_console_button_create-a-compute-service.png) 
 
-Note the Service ID beside your service name on the resulting page"
+Note the Service ID beside your service name on the resulting page:
 
 ![](fastly_compute_console_service-name-and-id.png)
 

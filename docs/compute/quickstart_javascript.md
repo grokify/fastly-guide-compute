@@ -8,7 +8,7 @@ There are a number of files deployed as part of this process, but they key files
 
 This is described quickly here along with the CLI commands, and in more detail below.
 
-Once you complete this quickstart, see the [tutorial](https://developer.fastly.com/learning/compute/javascript/) and [SDK reference](https://js-compute-reference-docs.edgecompute.app/) for more info along with additional [examples](https://developer.fastly.com/solutions/examples/javascript/) and [starter kits](../../compute/starter_kits/#javascript)
+Once you complete this quickstart, see the [tutorial](https://developer.fastly.com/learning/compute/javascript/) and [SDK reference](https://js-compute-reference-docs.edgecompute.app/) for more info along with additional [examples](https://developer.fastly.com/solutions/examples/javascript/) and [starter kits](../../compute/starter_kits/#javascript).
 
 === "src/index.js"
 
@@ -47,7 +47,7 @@ At the end of this quickstart, you will see the following in your browser where 
 
 ![](fastly_helloworld_website.png)
 
-To use your own domain, see the section on [Domains and TLS](../../basics/domains_and_tls)
+To use your own domain, see the section on [Domains and TLS](../../basics/domains_and_tls).
 
 ## Prerequisites
 
