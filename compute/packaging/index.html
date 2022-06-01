@@ -1451,7 +1451,7 @@
 <h1 id="packaging-the-edge-code">Packaging the Edge Code</h1>
 <p>Before uploading to Fastly's Edge, the WASM binary, <code>fastly.toml</code> file and any additional files must be packaged into a gzipped tarball to be uploaded.</p>
 <h2 id="tarball-format">Tarball Format</h2>
-<p>The file should be named <code>your-sanitized-package-name.tar.gz</code> and have the following files:</p>
+<p>The file should be named <code>your-sanitized-package-name.tar.gz</code> and should minimally have the following files:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>your-sanitized-package-name/bin/main.wasm
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>your-sanitized-package-name/fastly.toml
 </code></pre></div>

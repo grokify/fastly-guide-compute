@@ -1465,14 +1465,14 @@
 
 
 <h1 id="using-domains">Using Domains</h1>
-<p>Edge functions are accessed over HTTP so you need to add one or more domains to your Edge services to use it.</p>
-<p>You can use a Fastly subdomain or bring your own domain. In either case, Compute@Edge requires TLS so you will need to have TLS enabled. All non-TLS URLs are redirect to TLS by Fastly.</p>
+<p>Edge functions are accessed over HTTPS so you need to add one or more domains to your Edge services to use it.</p>
+<p>You can use a Fastly subdomain or bring your own domain. In either case, Compute@Edge requires TLS so you will need to have TLS enabled. All non-TLS URLs are redirect to TLS by Fastly using a 308 Permanent Redirect.</p>
 <p>For testing purposes, it may be useful to enable both.</p>
 <h2 id="using-a-fastly-subdomain">Using a Fastly Subdomain</h2>
-<p>A Fastly subdomain can be ideal for services with HTTP URLs that are not directly visible by users such as API services, media services, and others.</p>
+<p>A Fastly subdomain can be ideal for services with URLs that are not directly visible by users such as API services, media services, and others.</p>
 <p>A Fastly subdomain looks like the following:</p>
 <p><code>your-subdomain.global.ssl.fastly.net</code></p>
-<p>Simply choose a subomdain using the format <code>&lt;your_subdomain&gt;.global.ssl.fastly.net</code> and add it to your Service configuration.</p>
+<p>Simply choose a subomdain using the format <code>&lt;your-subdomain&gt;.global.ssl.fastly.net</code> and add it to your Service configuration.</p>
 <p>A Fastly subdomain comes with Fastly's Free TLS service which is documented in the <a href="https://docs.fastly.com/en/guides/setting-up-free-tls">Setting up free TLS guide</a>.</p>
 <h2 id="using-your-own-domain">Using Your Own Domain</h2>
 <p>You can also use your own domain as follows:</p>
@@ -1485,7 +1485,7 @@
 <li>Add a certificate by using Fastly's integrations with Let's Encrypt and Globalsign or bringing your own</li>
 </ol>
 <blockquote>
-<p>Note: Since Compute@Edge requires TLS, you will not be able to use Let's Encrypt's manual certification provisioning process as the Let's Encrypt needs to access a file in the <code>.well-known</code> folder which won't be accessible.</p>
+<p>Note: Since Compute@Edge requires TLS, you will not be able to use Let's Encrypt's manual certification provisioning process as the Let's Encrypt needs to access a file in the <code>.well-known</code> folder which won't be accessible. Fastly addresses this by enabling automatic certificate signing through the Fastly Management Console.</p>
 </blockquote>
 <h2 id="how-to-add-a-domain">How to Add a Domain</h2>
 <p>In either case, start off by adding a domain to your service. You can do this using the Fastly Management Console or the API / SDKs.</p>

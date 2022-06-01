@@ -2,112 +2,112 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://grokify.github.io/fastly-guide-compute/</loc>
-         <lastmod>2022-05-31</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://grokify.github.io/fastly-guide-compute/basics/</loc>
-         <lastmod>2022-05-31</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://grokify.github.io/fastly-guide-compute/basics/account/</loc>
-         <lastmod>2022-05-31</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://grokify.github.io/fastly-guide-compute/basics/domains_and_tls/</loc>
-         <lastmod>2022-05-31</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://grokify.github.io/fastly-guide-compute/basics/service/</loc>
-         <lastmod>2022-05-31</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://grokify.github.io/fastly-guide-compute/basics/token/</loc>
-         <lastmod>2022-05-31</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://grokify.github.io/fastly-guide-compute/compute/</loc>
-         <lastmod>2022-05-31</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://grokify.github.io/fastly-guide-compute/compute/code_javascript/</loc>
-         <lastmod>2022-05-31</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://grokify.github.io/fastly-guide-compute/compute/code_rust/</loc>
-         <lastmod>2022-05-31</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://grokify.github.io/fastly-guide-compute/compute/code_zig/</loc>
-         <lastmod>2022-05-31</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://grokify.github.io/fastly-guide-compute/compute/faq/</loc>
-         <lastmod>2022-05-31</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://grokify.github.io/fastly-guide-compute/compute/getting_started/</loc>
-         <lastmod>2022-05-31</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://grokify.github.io/fastly-guide-compute/compute/links/</loc>
-         <lastmod>2022-05-31</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://grokify.github.io/fastly-guide-compute/compute/logging/</loc>
-         <lastmod>2022-05-31</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://grokify.github.io/fastly-guide-compute/compute/packaging/</loc>
-         <lastmod>2022-05-31</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://grokify.github.io/fastly-guide-compute/compute/quickstart_javascript/</loc>
-         <lastmod>2022-05-31</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://grokify.github.io/fastly-guide-compute/compute/quickstart_swift/</loc>
-         <lastmod>2022-05-31</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://grokify.github.io/fastly-guide-compute/compute/starter_kits/</loc>
-         <lastmod>2022-05-31</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://grokify.github.io/fastly-guide-compute/compute/toml_metadata/</loc>
-         <lastmod>2022-05-31</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://grokify.github.io/fastly-guide-compute/compute/tutorial_api/</loc>
-         <lastmod>2022-05-31</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://grokify.github.io/fastly-guide-compute/compute/uploading_and_activation/</loc>
-         <lastmod>2022-05-31</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://grokify.github.io/fastly-guide-compute/compute/writing_code/</loc>
-         <lastmod>2022-05-31</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
