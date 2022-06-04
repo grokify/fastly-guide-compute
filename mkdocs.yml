@@ -31,20 +31,26 @@ nav:
     - 'Quickstart': compute/quickstart_javascript.md
     - 'Tutorial ⇗': https://developer.fastly.com/learning/compute/javascript/
     - 'SDK Reference ⇗': https://js-compute-reference-docs.edgecompute.app/
+    - 'NPM ⇗': https://www.npmjs.com/package/@fastly/js-compute
     - 'Examples ⇗': https://developer.fastly.com/solutions/examples/javascript/
     - 'Starter Kits': compute/starter_kits.md
   - 'Using AssemblyScript':
     - 'Tutorial ⇗': https://developer.fastly.com/learning/compute/assemblyscript/
     - 'SDK Reference ⇗': https://as-compute-reference-docs.edgecompute.app/
+    - 'NPM ⇗': https://www.npmjs.com/package/@fastly/as-compute
     - 'Examples ⇗': https://developer.fastly.com/solutions/examples/assemblyscript/
     - 'Starter Kits': compute/starter_kits.md
   - 'Using Rust':
     - 'Tutorial ⇗': https://developer.fastly.com/learning/compute/rust/
     - 'SDK Reference ⇗': https://docs.rs/fastly/latest/fastly/
-    - 'Eamples ⇗': https://developer.fastly.com/solutions/examples/rust/
+    - 'Examples ⇗': https://developer.fastly.com/solutions/examples/rust/
     - 'Starter Kits': compute/starter_kits.md
   - 'Using Swift':
     - 'Quickstart': compute/quickstart_swift.md
+    - 'SDK Reference ⇗': https://compute-runtime.swift.cloud/documentation/compute/
+    - 'GitHub ⇗': https://github.com/AndrewBarba/swift-compute-runtime
+  - 'Using Zig':
+    - 'GitHub ⇗': https://github.com/jedisct1/zigly
   - 'Migrating from VCL ⇗': https://developer.fastly.com/learning/compute/migrate/
   - 'Testing and Debugging ⇗': https://developer.fastly.com/learning/compute/testing/
   - 'The TOML file ⇗': https://developer.fastly.com/reference/compute/fastly-toml/
