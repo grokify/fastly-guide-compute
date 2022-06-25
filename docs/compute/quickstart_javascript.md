@@ -1,6 +1,6 @@
 # Compute@Edge Quickstart for JavaScript
 
-## TL/DR
+## TL;DR
 
 To create a simple "Hello, World!" synthetic response example, use the Fastly CLI to create an empty project and then modify the `src/index.js` file to emit "Hello, World!" instead of "OK".
 
