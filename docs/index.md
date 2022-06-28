@@ -10,7 +10,7 @@ It builds on the official Fastly documentation with an additional focus on:
 
 ## What is Compute@Edge?
 
-Compute@Edge lets you deploy lightweight, fastly to run, serverless code at the edge, in the form of WebAssembly (WASM) packages. The WASM packages are standard definition files that use the WebAssembly System Interface (WASI).
+Compute@Edge lets you deploy lightweight, fastly to run, serverless code at the edge, in the form of WebAssembly (Wasm) packages. The WASM packages are standard definition files that use the WebAssembly System Interface (WASI).
 
 See more on the [Fastly Product page](https://docs.fastly.com/products/compute-at-edge) and this guide's [FAQ](compute/faq).
 
