@@ -51,8 +51,11 @@ nav:
     - 'GitHub ⇗': https://github.com/AndrewBarba/swift-compute-runtime
   - 'Using Zig':
     - 'GitHub ⇗': https://github.com/jedisct1/zigly
+  - 'Using other Languages': compute/adding_languages.md
   - 'Migrating from VCL ⇗': https://developer.fastly.com/learning/compute/migrate/
-  - 'Testing and Debugging ⇗': https://developer.fastly.com/learning/compute/testing/
+  - 'Testing and Debugging':
+    - 'Overview ⇗': https://developer.fastly.com/learning/compute/testing/
+    - Using Viceroy: compute/viceroy_quickstart.md
   - 'The TOML file ⇗': https://developer.fastly.com/reference/compute/fastly-toml/
   - 'Packaging': compute/packaging.md
   - 'Deployment':
